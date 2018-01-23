@@ -30,7 +30,7 @@ pub fn replace(py: Python,
  */
 pub fn to_lower(py: Python,
                 text: &str) -> PyResult<String> {
-    let mut _text = text.to_string().to_lowercase();
+    let _text = text.to_string().to_lowercase();
     return Ok(_text)
 }
 
@@ -40,7 +40,7 @@ pub fn to_lower(py: Python,
  */
 pub fn to_upper(py: Python,
                 text: &str) -> PyResult<String> {
-    let mut _text = text.to_string().to_uppercase();
+    let _text = text.to_string().to_uppercase();
     return Ok(_text)
 }
 
