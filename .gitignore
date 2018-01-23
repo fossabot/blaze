@@ -1,6 +1,7 @@
 *.py[cod]
 .cache/
 .pypirc
+blazelib.so
 build/
 dist/
 src/target/

@@ -1,11 +1,13 @@
-PWD    = $(shell pwd)
+PROJECT = $(shell pwd)
 
-SOURCE = $(PWD)/src
-TESTS  = $(PWD)/tests
+SOURCE = $(PROJECT)/src
+TESTS  = $(PROJECT)/tests
 
 all:
 	cd $(SOURCE) && \
-     cargo build --verbose --all
+     cargo build --verbose --all && \
+	   mv $(SOURCE)/target/debug/libblazelib.so \
+	      $(PROJECT)/blazelib.so
 
 test:
 	cd $(TESTS) && \
@@ -14,6 +16,7 @@ test:
 
 clean:
 	rm -rfv $(SOURCE)/target
+	rm -fv $(PROJECT)/blazelib.so
 	find $(SOURCE) \
 	     -type f \
 	     -iname "*.py[pc]" \
