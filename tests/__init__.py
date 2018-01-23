@@ -20,7 +20,7 @@ def generate_random_sample(length=10,
                              for i in range(0, length, blocksize)])
 
 #
-# regex implementation
+# replace: regex implementation
 #
 
 def py_regex_replace(text='', replace_terms={}):
@@ -31,7 +31,7 @@ def py_regex_replace(text='', replace_terms={}):
     return text
 
 #
-# brute force implementation
+# replace: brute force implementation
 #
 
 def py_str_replace(text='', replace_terms={}):
@@ -39,3 +39,17 @@ def py_str_replace(text='', replace_terms={}):
     for term in replace_terms:
         text = text.replace(term, replace_terms.get(term))
     return text
+
+#
+# to uppercase
+#
+
+def py_str_upper(text=''):
+    return text.upper()
+
+#
+# to lowercase
+#
+
+def py_str_lower(text=''):
+    return text.lower()

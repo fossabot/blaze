@@ -18,7 +18,9 @@ release: # Python 2.7
 test:
 	cd $(TESTS) && \
 	   pytest --benchmark-enable test_py_regex.py && \
-	   pytest --benchmark-enable test_py_replace.py
+	   pytest --benchmark-enable test_py_replace.py && \
+	   pytest --benchmark-enable test_py_lowercase.py && \
+	   pytest --benchmark-enable test_py_uppercase.py
 
 clean:
 	rm -rfv $(SOURCE)/target
