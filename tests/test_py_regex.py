@@ -47,10 +47,3 @@ def test_regex_replace_1000000(benchmark):
     sys.stdout.write(benchmark(py_regex_replace,
                                sample,
                                replace_terms))
-
-# 10,000,000
-def test_regex_replace_10000000(benchmark):
-    sample = generate_random_sample(length=10000000)
-    sys.stdout.write(benchmark(py_regex_replace,
-                               sample,
-                               replace_terms))
