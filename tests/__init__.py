@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import random
+import re
 import string
 
 all = ['ASCII']
@@ -23,13 +24,18 @@ def generate_random_sample(length=10,
 #
 
 def py_regex_replace(text='', replace_terms={}):
-    terms = text.split()
-    return
+    if not replace_terms: return text
+    cache = re.sub
+    for term in replace_terms:
+        text = cache(term, replace_terms.get(term), text)
+    return text
 
 #
 # brute force implementation
 #
 
 def py_str_replace(text='', replace_terms={}):
-    terms = text.split()
-    return
+    if not replace_terms: return text
+    for term in replace_terms:
+        text = text.replace(term, replace_terms.get(term))
+    return text
