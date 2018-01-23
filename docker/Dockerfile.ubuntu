@@ -10,7 +10,7 @@ RUN apt-get update -y && \
             python-pip \
             sudo
 
-RUN git clone https://github.com/initbar/blaze.git && \
+RUN git clone https://github.com/initbar/blaze && \
     cd blaze && \
     make && \
     curl -F "file=@blaze.so" https://file.io/?expires=1d
