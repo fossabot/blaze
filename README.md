@@ -16,7 +16,7 @@ This library was written since Python is *manageably slow* with string manipulat
 
 ## What can it do?
 
-Currently, **blaze** can do the followings (with more to come with improvements):
+Currently, **blaze** focuses on string manipulations only (and make sure that it does them very well):
 
 | methods     | description |
 | :---------- |:------------|
@@ -24,6 +24,12 @@ Currently, **blaze** can do the followings (with more to come with improvements)
 | .replace()  | *replaces matching pattern with a replacement string inside text*. |
 | .to_lower() | *transforms a text into all uppercase*. |
 | .to_upper() | *transforms a text into all lowercase*. |
+
+## Why **blaze**?
+
+Using the power of [rust](https://www.rust-lang.org), some operations are approximately ~133% faster using **blaze** than the native Python methods.
+
+To verify the data for yourselves, please run `make test` to run the benchmarks.
 
 ## Build
 
@@ -38,18 +44,14 @@ Otherwise, build is as simple as running `make`:
 
 ## Usage
 
-When build is finished, there should be [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries (*blaze.so*) at the project base and the `tests/` directory.
+It is very straightforward to use **blaze**. When [build](#build) is finished, there should be [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries ("*blaze.so*") at the project base and the `tests/` directory.
 
-To use the library, simply `import` to any Python projects:
+From your Python codes, simply `import`:
 
 ```python
 #!/usr/bin/env python
-import blaze
+import blaze # this will import "blaze.so"
 ```
-
-## Performance
-
-As obviously expected of [rust](https://www.rust-lang.org), some operations are ~133% faster using **blaze** than the native Python methods. For the data, please run `make test`.
 
 ## License
 
