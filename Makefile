@@ -29,6 +29,7 @@ test:
 clean:
 	rm -rfv $(SOURCE)/target
 	rm -fv $(PROJECT)/blaze.so
+	rm -fv $(TESTS)/blaze.so
 	find $(SOURCE) \
 	     -type f \
 	     -iname "*.py[pc]" \

@@ -28,20 +28,18 @@ pub fn replace(py: Python,
  * : transform text to lowercase.
  * + {str} text -- input string.
  */
-pub fn to_lower(py: Python,
-                text: &str) -> PyResult<String> {
+pub fn to_lower(py: Python, text: &str) -> PyResult<&str> {
     let _text = text.to_string().to_lowercase();
-    return Ok(_text)
+    return Ok(&_text)
 }
 
 /** to_upper(text)
  * : transform text to uppercase.
  * + {str} text -- input string.
  */
-pub fn to_upper(py: Python,
-                text: &str) -> PyResult<String> {
+pub fn to_upper(py: Python, text: &str) -> PyResult<&str> {
     let _text = text.to_string().to_uppercase();
-    return Ok(_text)
+    return Ok(&_text)
 }
 
 //
