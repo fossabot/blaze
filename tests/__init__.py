@@ -20,6 +20,13 @@ def generate_random_sample(length=10,
                              for i in range(0, length, blocksize)])
 
 #
+# count
+#
+
+def py_str_count(text='', substring=''):
+    return str(text).count(str(substring))
+
+#
 # replace: regex implementation
 #
 
@@ -41,15 +48,15 @@ def py_str_replace(text='', replace_terms={}):
     return text
 
 #
-# to uppercase
-#
-
-def py_str_upper(text=''):
-    return text.upper()
-
-#
 # to lowercase
 #
 
 def py_str_lower(text=''):
     return text.lower()
+
+#
+# to uppercase
+#
+
+def py_str_upper(text=''):
+    return text.upper()

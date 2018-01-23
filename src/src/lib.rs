@@ -52,8 +52,8 @@ pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
 #[allow(unused_variables)]
 pub fn count<'t>(py: Python,
                  text: &'t str,
-                 substring: &'t str) -> PyResult<usize> {
-    let count = text.matches(substring).count();
+                 pattern: &'t str) -> PyResult<usize> {
+    let count = text.matches(pattern).count();
     return Ok(count)
 }
 
@@ -64,7 +64,7 @@ pub fn count<'t>(py: Python,
 py_module_initializer!(blaze, initblaze, PyInit_blaze, |py, m| {
     m.add(py, "__name__", "blaze")?;
     m.add(py, "__doc__", "blazingly-fast text manipulation engine at a quantum level.")?;
-    m.add(py, "count", py_fn!(py, count(text: &str, substring: &str)))?;
+    m.add(py, "count", py_fn!(py, count(text: &str, pattern: &str)))?;
     m.add(py, "replace", py_fn!(py, replace(pattern: &str,
                                             repl: &str,
                                             text: &str)))?;
