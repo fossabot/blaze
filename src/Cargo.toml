@@ -4,8 +4,7 @@ version = "0.1.0"
 authors = ["Herbert Shin <h@init.bar>"]
 
 [lib]
-name = "blaze"
-crate-type = ["dylib"]
+crate-type = ["cdylib"]
 
 [dependencies.cpython]
 version = "0.1"
