@@ -25,7 +25,7 @@ Otherwise, build is as simple as running `make`:
 
 ## Usage
 
-When build is finished, there should be `blaze.so` [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) at the project base directory for `imports`.
+When build is finished, there should be a `blaze.so` [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries at the project base and the `tests/` directory.
 
 ```python
 import blaze
