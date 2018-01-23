@@ -16,7 +16,7 @@ This library was written since Python is *manageably slow* with string manipulat
 
 ## What can it do?
 
-Currently, **blaze** focuses on string manipulations only (and makes sure to do them very well):
+Currently, **blaze** focuses on string manipulations only and makes sure to do them very well:
 
 | methods     | description |
 | :---------- |:------------|
@@ -27,7 +27,7 @@ Currently, **blaze** focuses on string manipulations only (and makes sure to do 
 
 ## Why **blaze**?
 
-Using the power of [rust](https://www.rust-lang.org), some operations are approximately ~133% faster using **blaze** than the native Python methods.
+Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster).
 
 To verify the data for yourselves, please run `make test` to run the benchmarks (or see one of the [travis build logs](https://github.com/initbar/blaze/commits/master)).
 
