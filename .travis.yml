@@ -4,39 +4,29 @@ install: true
 os:
   - linux
 
+language: rust
+python:
+  - "stable"
+  - "beta"
+  - "nightly"
+
 branches:
   only:
   - master
 
+before_install:
+  - sudo apt-get -qqy update
+  - sudo apt-get install -y python python-pip python3-pip
+
+before_script:
+- pip  install pytest pytest-benchmark
+- pip3 install pytest pytest-benchmark
+
+script:
+- make
+- make test
+
 matrix:
-  include:
-    - language: rust
-      rust:
-        - "1.0.0"
-        - "1.1.0"
-        - "stable"
-        - "beta"
-        - "nightly"
-      allow_failures:
-        - rust: "beta"
-        - rust: "nightly"
-      script:
-        - make
-    - language: python
-      python:
-        - "2.7"
-        - "3.3"
-        - "3.4"
-        - "3.5"
-        - "3.6"
-        - "nightly"
-      before_script:
-        - pip install pytest pytest-benchmark
-      script:
-        - make test
-      allow_failures:
-        - python: "3.3"
-        - python: "3.4"
-        - python: "3.5"
-        - python: "3.6"
-        - python: "nightly"
+  allow_failures:
+    - rust: "beta"
+    - rust: "nightly"
