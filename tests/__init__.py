@@ -25,9 +25,9 @@ def generate_random_sample(length=10,
 
 def py_regex_replace(text='', replace_terms={}):
     if not replace_terms: return text
-    cache = re.sub
+    re_sub = re.sub # cache function
     for term in replace_terms:
-        text = cache(term, replace_terms.get(term), text)
+        text = re_sub(term, replace_terms.get(term), text)
     return text
 
 #
