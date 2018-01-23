@@ -16,7 +16,7 @@ This library was written since Python is *manageably slow* with string manipulat
 
 ## What can it do?
 
-Currently, **blaze** focuses on string manipulations only (and make sure that it does them very well):
+Currently, **blaze** focuses on string manipulations only (and makes sure to do them very well):
 
 | methods     | description |
 | :---------- |:------------|
