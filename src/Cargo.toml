@@ -1,10 +1,10 @@
 [package]
-name = "blazelib"
+name = "blaze"
 version = "0.1.0"
 authors = ["Herbert Shin <h@init.bar>"]
 
 [lib]
-name = "blazelib"
+name = "blaze"
 crate-type = ["dylib"]
 
 [dependencies.cpython]

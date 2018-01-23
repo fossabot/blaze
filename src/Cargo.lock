@@ -1,5 +1,5 @@
 [root]
-name = "blazelib"
+name = "blaze"
 version = "0.1.0"
 dependencies = [
  "cpython 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",

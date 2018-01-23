@@ -6,14 +6,14 @@ TESTS  = $(PROJECT)/tests
 all:
 	cd $(SOURCE) && \
 	   cargo build --verbose --all && \
-	   mv $(SOURCE)/target/debug/libblazelib.so \
-	      $(PROJECT)/blazelib.so
+	   mv $(SOURCE)/target/debug/libblaze.so \
+	      $(PROJECT)/blaze.so
 
 release:
 	cd $(SOURCE) && \
 	   cargo build --release --verbose --all && \
-	   mv $(SOURCE)/target/release/libblazelib.so \
-	      $(PROJECT)/blazelib.so
+	   mv $(SOURCE)/target/release/libblaze.so \
+	      $(PROJECT)/blaze.so
 
 test:
 	cd $(TESTS) && \
@@ -22,7 +22,7 @@ test:
 
 clean:
 	rm -rfv $(SOURCE)/target
-	rm -fv $(PROJECT)/blazelib.so
+	rm -fv $(PROJECT)/blaze.so
 	find $(SOURCE) \
 	     -type f \
 	     -iname "*.py[pc]" \
