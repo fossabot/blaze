@@ -1,4 +1,4 @@
-sudo: true
+sudo: false
 install: true
 
 os:
@@ -16,15 +16,13 @@ branches:
 
 before_install:
   - sudo apt-get -qqy update
-  - sudo apt-get install -y python python-pip python3-pip
+  - sudo apt-get install -y python python-pip
 
 before_script:
-- sudo -H pip  install pytest pytest-benchmark
-- sudo -H pip3 install pytest pytest-benchmark
+  - sudo -H pip install pytest pytest-benchmark
 
 script:
-- make
-- make test
+  - make && make test
 
 matrix:
   allow_failures:
