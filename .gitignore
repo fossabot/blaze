@@ -3,4 +3,4 @@
 .pypirc
 build/
 dist/
-hmd.egg-info/
+src/target/
