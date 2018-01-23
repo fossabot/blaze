@@ -5,8 +5,14 @@ TESTS  = $(PROJECT)/tests
 
 all:
 	cd $(SOURCE) && \
-     cargo build --verbose --all && \
+	   cargo build --verbose --all && \
 	   mv $(SOURCE)/target/debug/libblazelib.so \
+	      $(PROJECT)/blazelib.so
+
+release:
+	cd $(SOURCE) && \
+	   cargo build --release --verbose --all && \
+	   mv $(SOURCE)/target/release/libblazelib.so \
 	      $(PROJECT)/blazelib.so
 
 test:

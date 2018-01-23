@@ -22,7 +22,8 @@ before_script:
   - sudo -H pip install pytest pytest-benchmark
 
 script:
-  - make && make test
+  - make && \
+    make test
 
 matrix:
   allow_failures:
