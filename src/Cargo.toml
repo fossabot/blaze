@@ -1,0 +1,12 @@
+[package]
+name = "blazelib"
+version = "0.1.0"
+authors = ["Herbert Shin <h@init.bar>"]
+
+[lib]
+name = "blazelib"
+crate-type = ["dylib"]
+
+[dependencies.cpython]
+version = "0.1"
+features = ["extension-module"]
