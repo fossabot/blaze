@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/initbar/blaze.svg?branch=master)](https://travis-ci.org/initbar/blaze)
 <p align="center">
-  <img src="./docs/images/logo.png">
+  <img src="https://raw.githubusercontent.com/initbar/blaze/docs/logo.png">
 </p>
 
 **blaze** is a rustic-Python library for blazingly-fast text manipulation at a quantum level.
