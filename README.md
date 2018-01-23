@@ -29,7 +29,7 @@ Currently, **blaze** focuses on string manipulations only (and makes sure to do 
 
 Using the power of [rust](https://www.rust-lang.org), some operations are approximately ~133% faster using **blaze** than the native Python methods.
 
-To verify the data for yourselves, please run `make test` to run the benchmarks.
+To verify the data for yourselves, please run `make test` to run the benchmarks (or see one of the [travis build logs](https://github.com/initbar/blaze/commits/master)).
 
 ## Build
 
