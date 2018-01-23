@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 install: true
 
 os:
@@ -19,8 +19,8 @@ before_install:
   - sudo apt-get install -y python python-pip python3-pip
 
 before_script:
-- pip  install pytest pytest-benchmark
-- pip3 install pytest pytest-benchmark
+- sudo -H pip  install pytest pytest-benchmark
+- sudo -H pip3 install pytest pytest-benchmark
 
 script:
 - make
