@@ -6,8 +6,9 @@ extern crate cpython;
 use cpython::{Python, PyResult, PyObject};
 
 /** count(text, character)
- * : transform text to uppercase.
+ * : count the frequency of `character` inside `text`.
  * + {str} text -- input string.
+ * + {str} character -- character to be counted.
  */
 #[allow(unused_variables)]
 pub fn count<'t>(py: Python,
@@ -18,7 +19,7 @@ pub fn count<'t>(py: Python,
 }
 
 /** replace(pattern, repl, text)
- * : search and replace a `pattern` with `repl` inside given text.
+ * : search and replace `pattern` with `repl` inside `text`.
  * + {str} pattern -- absolute string.
  * + {str} repl -- replacement string.
  * + {str} text -- input string.
@@ -38,7 +39,7 @@ pub fn replace<'t>(py: Python,
 }
 
 /** to_lower(text)
- * : transform text to lowercase.
+ * : transform `text` to lowercase.
  * + {str} text -- input string.
  */
 #[allow(unused_variables)]
@@ -48,7 +49,7 @@ pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
 }
 
 /** to_upper(text)
- * : transform text to uppercase.
+ * : transform `text` to uppercase.
  * + {str} text -- input string.
  */
 #[allow(unused_variables)]
