@@ -51,6 +51,13 @@ From your Python codes, simply `import`:
 import blaze # this will import "blaze.so"
 ```
 
+## Docker
+
+To minimize tainting local dev environment to build/use **blaze**, use [Makefile](https://github.com/initbar/blaze/blob/master/Makefile) docker parameters:
+
+- make *docker-centos*
+- make *docker-ubuntu*
+
 ## License
 
 **blaze** is under [MIT License](./LICENSE.md).
