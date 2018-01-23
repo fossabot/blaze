@@ -1,35 +1,13 @@
 [package]
 name = "blaze"
 version = "0.1.0"
+repository = "https://github.com/initbar/blaze"
 authors = ["Herbert Shin <h@init.bar>"]
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib"]
 
-[dependencies.cpython]
-version = "0.1"
-
-# Python 2.7
-default-features = false
-features = ["extension-module-2-7", "python27-sys"]
-
-# Python 3+
-# features = "extension-module"
-
-[profile.release]
-codegen-units = 1
-debug = false
-debug-assertions = false
-lto = false
-opt-level = 3
-panic = 'unwind'
-rpath = false
-
-[profile.test]
-codegen-units = 1
-debug = 2
-debug-assertions = true
-lto = false
-opt-level = 0
-panic = 'unwind'
-rpath = false
+[dependencies]
+cpython = { version="0.1", features=["extension-module-2-7", "python27-sys"], default-features=false } # Python 2.7
+# cpython = { version="0.1", features=["extension-module"] } # Python 3+
