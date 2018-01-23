@@ -5,16 +5,28 @@ extern crate cpython;
 #[allow(unused)]
 use cpython::{Python, PyResult, PyObject};
 
+/** count(text, character)
+ * : transform text to uppercase.
+ * + {str} text -- input string.
+ */
+#[allow(unused_variables)]
+pub fn count<'t>(py: Python,
+                 text: &'t str,
+                 pattern: &'t str) -> PyResult<usize> {
+    let count = text.matches(pattern).count();
+    return Ok(count)
+}
+
 /** replace(pattern, repl, text)
  * : search and replace a `pattern` with `repl` inside given text.
  * + {str} pattern -- absolute string.
  * + {str} repl -- replacement string.
  * + {str} text -- input string.
  */
-pub fn replace(py: Python,
-               pattern: &str,
-               repl: &str,
-               text: &str) -> PyResult<String> {
+pub fn replace<'t>(py: Python,
+                   pattern: &'t str,
+                   repl: &'t str,
+                   text: &'t str) -> PyResult<String> {
     let mut ret = String::new();
     for character in text.chars() {
         match character {
@@ -43,18 +55,6 @@ pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
 pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
     let _text = text.to_string().to_uppercase();
     return Ok(_text)
-}
-
-/** count(text, character)
- * : transform text to uppercase.
- * + {str} text -- input string.
- */
-#[allow(unused_variables)]
-pub fn count<'t>(py: Python,
-                 text: &'t str,
-                 pattern: &'t str) -> PyResult<usize> {
-    let count = text.matches(pattern).count();
-    return Ok(count)
 }
 
 //

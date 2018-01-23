@@ -52,11 +52,11 @@ def py_str_replace(text='', replace_terms={}):
 #
 
 def py_str_lower(text=''):
-    return text.lower()
+    return str(text).lower()
 
 #
 # to uppercase
 #
 
 def py_str_upper(text=''):
-    return text.upper()
+    return str(text).upper()
