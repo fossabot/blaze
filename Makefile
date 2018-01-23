@@ -3,13 +3,13 @@ PROJECT = $(shell pwd)
 SOURCE = $(PROJECT)/src
 TESTS  = $(PROJECT)/tests
 
-all:
+all: # Python 2.7
 	cd $(SOURCE) && \
 	   cargo build --verbose --all && \
 	   mv $(SOURCE)/target/debug/libblaze.so \
 	      $(PROJECT)/blaze.so
 
-release:
+release: # Python 2.7
 	cd $(SOURCE) && \
 	   cargo build --release --verbose --all && \
 	   mv $(SOURCE)/target/release/libblaze.so \

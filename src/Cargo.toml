@@ -8,22 +8,28 @@ crate-type = ["cdylib"]
 
 [dependencies.cpython]
 version = "0.1"
-features = ["extension-module"]
+
+# Python 2.7
+default-features = false
+features = ["extension-module-2-7", "python27-sys"]
+
+# Python 3+
+# features = "extension-module"
 
 [profile.release]
-opt-level = 3
-debug = false
-rpath = false
-lto = false
-debug-assertions = false
 codegen-units = 1
+debug = false
+debug-assertions = false
+lto = false
+opt-level = 3
 panic = 'unwind'
+rpath = false
 
 [profile.test]
-opt-level = 0
-debug = 2
-rpath = false
-lto = false
-debug-assertions = true
 codegen-units = 1
+debug = 2
+debug-assertions = true
+lto = false
+opt-level = 0
 panic = 'unwind'
+rpath = false
