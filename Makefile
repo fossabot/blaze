@@ -3,6 +3,11 @@ PWD    = $(shell pwd)
 SOURCE = $(PWD)/src
 TESTS  = $(PWD)/tests
 
+all:
+	cd $(SOURCE) && \
+     cargo build --verbose --all
+
 test:
-	pytest --benchmark-enable $(TESTS)/test_py_regex.py
-	pytest --benchmark-enable $(TESTS)/test_py_replace.py
+	cd $(TESTS) && \
+	   pytest --benchmark-enable test_py_regex.py && \
+	   pytest --benchmark-enable test_py_replace.py
