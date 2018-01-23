@@ -2,9 +2,6 @@
 
 from __init__ import *
 
-import re
-import sys
-
 replace_terms = dict(zip(string.ascii_letters,
                          string.ascii_letters.encode('rot-13')))
 
