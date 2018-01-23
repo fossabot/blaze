@@ -10,7 +10,6 @@ import sys
 replace_terms = dict(zip(string.ascii_letters,
                          string.ascii_letters.encode('rot-13')))
 
-
 def test_regex_replace_10(benchmark):
     sample = generate_random_sample()
     sys.stdout.write(benchmark(py_regex_replace,

@@ -1,4 +1,5 @@
 *.py[cod]
+.cache/
 .pypirc
 build/
 dist/
