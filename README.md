@@ -33,9 +33,7 @@ To verify the data for yourselves, please run `make test` to run the benchmarks.
 
 ## Build
 
-By default, **blaze** is built against the Python 2.7 libraries. In order to build for Python 3, switch the `cpython` dependencies under [Cargo.toml](https://github.com/initbar/blaze/blob/master/src/Cargo.toml).
-
-Otherwise, build is as simple as running `make`:
+By default, **blaze** is built against the Python 2.7 libraries. In order to build for Python 3, switch to Python 3 features under [Cargo.toml](https://github.com/initbar/blaze/blob/master/src/Cargo.toml). Otherwise, building is as simple as running `make`:
 
 ```bash
 ~$ make
