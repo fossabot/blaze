@@ -2,6 +2,7 @@
 
 extern crate cpython;
 
+#[allow(unused)]
 use cpython::{Python, PyResult, PyObject};
 
 /** replace(pattern, repl, text)
@@ -28,18 +29,20 @@ pub fn replace(py: Python,
  * : transform text to lowercase.
  * + {str} text -- input string.
  */
-pub fn to_lower(py: Python, text: &str) -> PyResult<&str> {
+#[allow(unused_variables)]
+pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
     let _text = text.to_string().to_lowercase();
-    return Ok(&_text)
+    return Ok(_text)
 }
 
 /** to_upper(text)
  * : transform text to uppercase.
  * + {str} text -- input string.
  */
-pub fn to_upper(py: Python, text: &str) -> PyResult<&str> {
+#[allow(unused_variables)]
+pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
     let _text = text.to_string().to_uppercase();
-    return Ok(&_text)
+    return Ok(_text)
 }
 
 //
