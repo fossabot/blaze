@@ -58,6 +58,8 @@ To minimize tainting local dev environment to build/use **blaze**, use [Makefile
 - make *docker-centos*
 - make *docker-ubuntu*
 
+Once docker build is finished, there should be a link (https://file.io) to download the built binary.
+
 ## License
 
 **blaze** is under [MIT License](./LICENSE.md).
