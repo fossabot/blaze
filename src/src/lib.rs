@@ -1,9 +1,9 @@
 #[macro_use]
 
 extern crate cpython;
-extern crate bio as algorithms;
+extern crate bio;
 
-use algorithms::pattern_matching::horspool::Horspool;
+use bio::pattern_matching::horspool::Horspool;
 use cpython::{Python, PyResult, PyObject};
 
 //
