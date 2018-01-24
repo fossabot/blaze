@@ -2,8 +2,49 @@
 
 extern crate cpython;
 
-#[allow(unused)]
 use cpython::{Python, PyResult, PyObject};
+use std::collections::{BTreeMap, HashSet};
+
+//
+// private
+//
+
+/** boyer_moore_match(text, pattern)
+ * : Boyer-Moore match algorithm.
+ * + {str} text -- input string.
+ * + {str} pattern -- absolute string.
+ */
+fn boyer_moore_match(text: &str, pattern: &str) -> ()
+{
+    if text.is_empty() || pattern.is_empty() {
+        return ();
+    }
+
+    // get unique set of text
+    let mut set = HashSet::new();
+    for character in text.chars() {
+        set.insert(character);
+    }
+
+    // find last occurances
+    let mut btree = BTreeMap::new();
+    for atom in &set {
+        let option = &text.rfind(*atom);
+        if option.is_some() {
+            btree.insert(atom, option.unwrap());
+        }
+    }
+    if btree.is_empty() {
+        return ();
+    }
+
+    // debug
+    // for key in &set { println!("{}", key);}
+}
+
+//
+// public
+//
 
 /** count(text, character)
  * : count the frequency of `character` inside `text`.
@@ -14,6 +55,7 @@ use cpython::{Python, PyResult, PyObject};
 pub fn count<'t>(py: Python,
                  text: &'t str,
                  pattern: &'t str) -> PyResult<usize> {
+    // boyer_moore_match(text, pattern);
     let count = text.matches(pattern).count();
     return Ok(count)
 }
