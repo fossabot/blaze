@@ -13,9 +13,11 @@ all: # Python 2.7
 
 release: # Python 2.7
 	cd $(SOURCE) && \
-	   cargo build --release --verbose --all && \
+	   cargo build --release --all-features --verbose --all && \
 	   mv $(SOURCE)/target/release/libblaze.so \
 	      $(PROJECT)/blaze.so
+	   cp -v $(PROJECT)/blaze.so \
+	         $(TESTS)/blaze.so
 
 docker-centos: # Centos 6.7
 	sudo docker build . \

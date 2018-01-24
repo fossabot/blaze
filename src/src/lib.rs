@@ -4,7 +4,7 @@ extern crate cpython;
 extern crate bio;
 
 use bio::pattern_matching::horspool::Horspool;
-use cpython::{Python, PyResult, PyObject};
+use cpython::{Python, PyResult};
 
 //
 // public
@@ -15,7 +15,6 @@ use cpython::{Python, PyResult, PyObject};
  * + {str} text -- input string.
  * + {str} character -- character to be counted.
  */
-#[allow(unused_variables)]
 pub fn count<'t>(py: Python,
                  text: &'t str,
                  pattern: &'t str) -> PyResult<usize> {
@@ -34,34 +33,32 @@ pub fn replace<'t>(py: Python,
                    pattern: &'t str,
                    repl: &'t str,
                    text: &'t str) -> PyResult<String> {
-    let mut ret = String::new();
+    let mut _text = String::new();
     for character in text.chars() {
         match character {
-            pattern => ret.push_str(repl),
-            _ => ret.push(character)
+            pattern => _text.push_str(repl),
+            _ => _text.push(character)
         }
     }
-    return Ok(ret)
+    return Ok(_text);
 }
 
 /** to_lower(text)
  * : transform `text` to lowercase.
  * + {str} text -- input string.
  */
-#[allow(unused_variables)]
 pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
     let _text = text.to_string().to_lowercase();
-    return Ok(_text)
+    return Ok(_text);
 }
 
 /** to_upper(text)
  * : transform `text` to uppercase.
  * + {str} text -- input string.
  */
-#[allow(unused_variables)]
 pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
     let _text = text.to_string().to_uppercase();
-    return Ok(_text)
+    return Ok(_text);
 }
 
 //
