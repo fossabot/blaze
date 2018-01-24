@@ -62,14 +62,16 @@ pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
     return Ok(_text);
 }
 
-/** to_set(text)
+/** unique(text)
  * : return distinct text characters.
  * + {str} text -- input string.
  */
 pub fn unique(py: Python, text: &str) -> PyResult<String> {
     let mut btree = BTreeMap::new();
     for character in text.chars() {
-        btree.insert(character, ());
+        if !btree.contains_key(&character) {
+            btree.insert(character, ());
+        }
     }
     return Ok(btree.keys().collect());
 }
