@@ -16,6 +16,7 @@ RUN yum update -y && \
         xz && \
     curl -sSf https://static.rust-lang.org/rustup.sh | sh && \
     wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz && \
+    tar xf Python-2.7.9.tar.xz && \
     cd Python-2.7.9 && \
     ./configure --prefix=/usr/local --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib" && \
     make && \
