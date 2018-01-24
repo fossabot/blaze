@@ -17,16 +17,16 @@ release: # Python 2.7
 	   mv $(SOURCE)/target/release/libblaze.so \
 	      $(PROJECT)/blaze.so
 
-docker-centos:
-	sudo docker build \
+docker-centos: # Centos 6.7
+	sudo docker build . \
 	     --tag="blaze-centos:latest" \
-	     -f docker/Dockerfile.centos . && \
+	     -f docker/centos/Dockerfile && \
 	sudo docker image rm "blaze-centos:latest"
 
-docker-ubuntu:
-	sudo docker build \
+docker-ubuntu: # Ubuntu 16.04
+	sudo docker build . \
 	     --tag="blaze-ubuntu:latest" \
-	     -f docker/Dockerfile.ubuntu . && \
+	     -f docker/ubuntu/Dockerfile && \
 	sudo docker image rm "blaze-ubuntu:latest"
 
 test:
