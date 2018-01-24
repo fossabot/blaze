@@ -9,5 +9,6 @@ license = "MIT"
 crate-type = ["cdylib"]
 
 [dependencies]
+bio = { version="0.16.0" }
 cpython = { version="0.1", features=["extension-module-2-7", "python27-sys"], default-features=false } # Python 2.7
 # cpython = { version="0.1", features=["extension-module"] } # Python 3+
