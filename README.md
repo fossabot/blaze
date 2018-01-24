@@ -27,9 +27,7 @@ Currently, **blaze** focuses on string manipulations only and makes sure to do t
 
 ## Why **blaze**?
 
-Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster).
-
-To verify the data for yourselves, please run `make test` to run the benchmarks (or see one of the [travis build logs](https://github.com/initbar/blaze/commits/master)).
+Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster). For more information, see [benchmark](#benchmark).
 
 ## Build
 
@@ -39,6 +37,10 @@ By default, **blaze** is built against the Python 2.7 libraries. In order to bui
 ~$ make
 ~$ make test # optional
 ```
+
+## Benchmark
+
+TODO
 
 ## Usage
 
