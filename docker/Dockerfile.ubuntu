@@ -4,6 +4,7 @@ MAINTAINER Herbert Shin
 
 RUN apt-get update -y && \
     apt-get install -y \
+            apt-utils \
             cargo \
             curl \
             git \
