@@ -5,6 +5,7 @@ extern crate bio;
 
 use bio::pattern_matching::horspool::Horspool;
 use cpython::{Python, PyResult};
+use std::collections::{BTreeMap};
 
 //
 // public
@@ -48,7 +49,7 @@ pub fn replace<'t>(py: Python,
  * + {str} text -- input string.
  */
 pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
-    let _text = text.to_string().to_lowercase();
+    let _text = text.to_string().to_lowercase(); // rust heap transformation
     return Ok(_text);
 }
 
@@ -57,8 +58,20 @@ pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
  * + {str} text -- input string.
  */
 pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
-    let _text = text.to_string().to_uppercase();
+    let _text = text.to_string().to_uppercase(); // rust heap transformation
     return Ok(_text);
+}
+
+/** to_set(text)
+ * : return distinct text characters.
+ * + {str} text -- input string.
+ */
+pub fn unique(py: Python, text: &str) -> PyResult<String> {
+    let mut btree = BTreeMap::new();
+    for character in text.chars() {
+        btree.insert(character, ());
+    }
+    return Ok(btree.keys().collect());
 }
 
 //
@@ -74,5 +87,6 @@ py_module_initializer!(blaze, initblaze, PyInit_blaze, |py, m| {
                                             text: &str)))?;
     m.add(py, "to_lower", py_fn!(py, to_lower(text: &str)))?;
     m.add(py, "to_upper", py_fn!(py, to_upper(text: &str)))?;
+    m.add(py, "unique", py_fn!(py, unique(text: &str)))?;
     Ok(())
 });
