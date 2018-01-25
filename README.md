@@ -40,7 +40,13 @@ By default, **blaze** is built against the Python 2.7 libraries. In order to bui
 
 ## Benchmark
 
-TODO
+| **Test** | **Python** | **Blaze** |
+|:--------:|:----------:|:---------:|
+| .count() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/count.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/count.png) |
+| .replace() (replace) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/replace.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/replace.png) |
+| .replace() (regex) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/regex.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/regex.png) |
+| .to_lower() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/lowercase.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/lowercase.png) |
+| .to_upper() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/uppercase.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/uppercase.png) |
 
 ## Usage
 
