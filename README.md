@@ -46,19 +46,16 @@ Compared to native Python methods, all operations - using the power of [rust](ht
 ~$ make test # optional
 ```
 
-- Otherwise, to build using [docker](https://www.docker.com), use the [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters below. Once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT.
+- To build using [docker](https://www.docker.com), use the [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters below (once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT).
   - make *docker-centos*
   - make *docker-ubuntu*
 
 ## Usage
 
-It is very straightforward to use **blaze**. When [build](#build) is finished, there should be [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries ("*blaze.so*") at the project base and the `tests/` directory.
-
-From your Python codes, simply `import`:
+It is very straightforward to use **blaze**. When [build](#build) is finished, there should be [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binaries ("*blaze.so*") at the project base and the `tests/` directory. From there, simply `import`:
 
 ```python
-#!/usr/bin/env python
-import blaze # this will import "blaze.so"
+import blaze # imports "blaze.so"
 ```
 
 ## License
