@@ -29,8 +29,6 @@ Currently, **blaze** focuses on string manipulations only and makes sure to do t
 
 Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster). For more information, see [benchmark](#benchmark).
 
-## How does **blaze** perform?
-
 | **Test** | **Python** | **Blaze** |
 |:--------:|:----------:|:---------:|
 | .count() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/count.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/count.png) |
@@ -48,11 +46,9 @@ Compared to native Python methods, all operations - using the power of [rust](ht
 ~$ make test # optional
 ```
 
-- To build using [docker](https://www.docker.com), use the following [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters:
+- Otherwise, to build using [docker](https://www.docker.com), use the [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters below. Once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT.
   - make *docker-centos*
   - make *docker-ubuntu*
-
-**Note**: once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT.
 
 ## Usage
 
