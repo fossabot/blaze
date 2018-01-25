@@ -31,17 +31,10 @@ pub fn count<'t>(py: Python,
  * + {str} text -- input string.
  */
 pub fn replace<'t>(py: Python,
+                   text: &'t str,
                    pattern: &'t str,
-                   repl: &'t str,
-                   text: &'t str) -> PyResult<String> {
-    let mut _text = String::new();
-    for character in text.chars() {
-        match character {
-            pattern => _text.push_str(repl),
-            _ => _text.push(character)
-        }
-    }
-    return Ok(_text);
+                   repl: &'t str) -> PyResult<String> {
+    return Ok("stub".to_string());
 }
 
 /** to_lower(text)
@@ -82,11 +75,11 @@ pub fn unique(py: Python, text: &str) -> PyResult<String> {
 
 py_module_initializer!(blaze, initblaze, PyInit_blaze, |py, m| {
     m.add(py, "__name__", "blaze")?;
-    m.add(py, "__doc__", "blazingly-fast text manipulation engine at a quantum level.")?;
+    m.add(py, "__doc__", "blazingly-fast text manipulation engine for Python.")?;
     m.add(py, "count", py_fn!(py, count(text: &str, pattern: &str)))?;
-    m.add(py, "replace", py_fn!(py, replace(pattern: &str,
-                                            repl: &str,
-                                            text: &str)))?;
+    m.add(py, "replace", py_fn!(py, replace(text: &str,
+                                            pattern: &str,
+                                            repl: &str)))?;
     m.add(py, "to_lower", py_fn!(py, to_lower(text: &str)))?;
     m.add(py, "to_upper", py_fn!(py, to_upper(text: &str)))?;
     m.add(py, "unique", py_fn!(py, unique(text: &str)))?;
