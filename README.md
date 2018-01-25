@@ -29,16 +29,7 @@ Currently, **blaze** focuses on string manipulations only and makes sure to do t
 
 Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster). For more information, see [benchmark](#benchmark).
 
-## Build
-
-By default, **blaze** is built against the Python 2.7 libraries. In order to build for Python 3, switch to Python 3 features under [Cargo.toml](https://github.com/initbar/blaze/blob/master/src/Cargo.toml). Otherwise, building is as simple as running `make`:
-
-```bash
-~$ make
-~$ make test # optional
-```
-
-## Benchmark
+## How does **blaze** perform?
 
 | **Test** | **Python** | **Blaze** |
 |:--------:|:----------:|:---------:|
@@ -47,6 +38,21 @@ By default, **blaze** is built against the Python 2.7 libraries. In order to bui
 | .replace() (regex) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/regex.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/regex.png) |
 | .to_lower() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/lowercase.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/lowercase.png) |
 | .to_upper() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/uppercase.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/uppercase.png) |
+
+## Build
+
+- By default, **blaze** is built against the Python 2.7 libraries. In order to build for Python 3, switch to Python 3 features under [Cargo.toml](https://github.com/initbar/blaze/blob/master/src/Cargo.toml). Otherwise, building is as simple as running `make`:
+
+```bash
+~$ make
+~$ make test # optional
+```
+
+- To build using [docker](https://www.docker.com), use the following [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters:
+  - make *docker-centos*
+  - make *docker-ubuntu*
+
+**Note**: once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT.
 
 ## Usage
 
@@ -58,15 +64,6 @@ From your Python codes, simply `import`:
 #!/usr/bin/env python
 import blaze # this will import "blaze.so"
 ```
-
-## Docker
-
-To minimize tainting local dev environment to build/use **blaze**, use [Makefile](https://github.com/initbar/blaze/blob/master/Makefile) docker parameters:
-
-- make *docker-centos*
-- make *docker-ubuntu*
-
-Once docker build is finished, there should be a link (https://file.io) to download the built binary.
 
 ## License
 
