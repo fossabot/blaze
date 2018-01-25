@@ -25,7 +25,7 @@ Currently, **blaze** focuses on string manipulations only and makes sure to do t
 
 ## Why **blaze**?
 
-Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster). For more information, see [benchmark](#benchmark).
+Compared to native Python methods, all operations - using the power of [rust](https://www.rust-lang.org) - are at least ~50% faster (and some are approximately 133% faster). For more information, see the benchmark results below:
 
 | **Test** | **Python** | **Blaze** |
 |:--------:|:----------:|:---------:|
