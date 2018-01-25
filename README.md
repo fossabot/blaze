@@ -18,12 +18,10 @@ This library was written since Python is *manageably slow* with string manipulat
 
 Currently, **blaze** focuses on string manipulations only and makes sure to do them very well:
 
-| methods     | description |
-| :---------- |:------------|
-| .count()    | *counts the frequency of patterns inside text*. |
-| .replace()  | *replaces matching pattern with a replacement string inside text*. |
-| .to_lower() | *transforms a text into all uppercase*. |
-| .to_upper() | *transforms a text into all lowercase*. |
+- **.count()** - counts the frequency of patterns inside text.
+- **.replace()** - replaces matching pattern with a replacement string inside text.
+- **.to_lower()** - transforms a text into all lowercase.
+- **.to_upper()** - transforms a text into all uppercase.
 
 ## Why **blaze**?
 
