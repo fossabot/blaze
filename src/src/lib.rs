@@ -3,6 +3,8 @@
 extern crate cpython;
 extern crate bio;
 
+use cpython::ObjectProtocol;
+
 //
 // public
 //
@@ -12,7 +14,7 @@ extern crate bio;
  * + {str} text -- input string.
  * + {str} character -- character to be counted.
  */
-pub fn count<'t>(py :cpython::Python,
+pub fn count<'t>(_py :cpython::Python,
                  text: &'t str,
                  pattern: &'t str)
                  -> cpython::PyResult<usize> {
@@ -27,7 +29,7 @@ pub fn count<'t>(py :cpython::Python,
  * + {str} pattern -- absolute string.
  * + {str} repl -- replacement string.
  */
-pub fn replace<'t>(py :cpython::Python,
+pub fn replace<'t>(_py :cpython::Python,
                    text: &str,
                    pattern: &str,
                    repl: &str)
@@ -41,18 +43,36 @@ pub fn replace<'t>(py :cpython::Python,
  * + {str} text -- input string.
  * + {PyDict} patterns -- dictionary of replacements.
  */
-pub fn replacen<'t>(py :cpython::Python,
+pub fn replacen<'t>(_py :cpython::Python,
                     text: &'t str,
                     patterns: cpython::PyDict)
                     -> cpython::PyResult<String> {
-    return Ok("stub".to_string());
+    let mut _text = text.to_string();
+    let entries: Vec<(cpython::PyObject, cpython::PyObject)> = patterns.items(_py);
+    for entry in &entries {
+        let (ref key, ref value) = *entry;
+
+        // convert key to &str
+        let _key = key.str(_py).unwrap();
+        let _key_ref = _key.to_string_lossy(_py);
+        let _key_str = _key_ref.as_ref();
+
+        // convert value to &str
+        let _value = value.str(_py).unwrap();
+        let _value_ref = _value.to_string_lossy(_py);
+        let _value_str = _value_ref.as_ref();
+
+        // replace string
+        _text = _text.replace(_key_str, _value_str);
+    }
+    return Ok(_text);
 }
 
 /** to_lower(text)
  * : transform `text` to lowercase.
  * + {str} text -- input string.
  */
-pub fn to_lower<'t>(py :cpython::Python,
+pub fn to_lower<'t>(_py :cpython::Python,
                     text: &'t str)
                     -> cpython::PyResult<String> {
     let _text = text.to_string().to_lowercase(); // rust heap transformation
@@ -63,7 +83,7 @@ pub fn to_lower<'t>(py :cpython::Python,
  * : transform `text` to uppercase.
  * + {str} text -- input string.
  */
-pub fn to_upper<'t>(py :cpython::Python,
+pub fn to_upper<'t>(_py :cpython::Python,
                     text: &'t str)
                     -> cpython::PyResult<String> {
     let _text = text.to_string().to_uppercase(); // rust heap transformation
@@ -74,7 +94,7 @@ pub fn to_upper<'t>(py :cpython::Python,
  * : return distinct text characters.
  * + {str} text -- input string.
  */
-pub fn unique(py :cpython::Python,
+pub fn unique(_py :cpython::Python,
               text: &str)
               -> cpython::PyResult<String> {
     let mut btree = std::collections::BTreeMap::new();
