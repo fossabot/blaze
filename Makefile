@@ -37,10 +37,13 @@ test:
 	   pytest --benchmark-enable test_py_lowercase.py && \
 	   pytest --benchmark-enable test_py_regex.py && \
 	   pytest --benchmark-enable test_py_replace.py && \
+	   pytest --benchmark-enable test_py_replacen.py && \
 	   pytest --benchmark-enable test_py_uppercase.py && \
 	   pytest --benchmark-enable test_rust_count.py && \
 	   pytest --benchmark-enable test_rust_lowercase.py && \
-	   pytest --benchmark-enable test_rust_uppercase.py
+	   pytest --benchmark-enable test_rust_replace.py && \
+	   pytest --benchmark-enable test_rust_uppercase.py && \
+	   echo $?
 
 clean:
 	rm -rfv $(SOURCE)/target

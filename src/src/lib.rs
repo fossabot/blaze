@@ -24,16 +24,30 @@ pub fn count<'t>(py: Python,
     return Ok(vector.len());
 }
 
-/** replace(pattern, repl, text)
+/** replace(text, pattern, repl)
  * : search and replace `pattern` with `repl` inside `text`.
+ * + {str} text -- input string.
  * + {str} pattern -- absolute string.
  * + {str} repl -- replacement string.
- * + {str} text -- input string.
  */
 pub fn replace<'t>(py: Python,
-                   text: &'t str,
-                   pattern: &'t str,
-                   repl: &'t str) -> PyResult<String> {
+                   text: &str,
+                   pattern: &str,
+                   repl: &str) -> PyResult<String> {
+    let _text = text.to_string().replace(pattern, repl);
+    return Ok(_text);
+}
+
+/** replacen(text, patterns)
+ * : search and replace `pattern` with `repl` inside `text`.
+ * + {str} text -- input string.
+ * + {str} pattern -- absolute string.
+ * + {str} repl -- replacement string.
+ */
+pub fn replacen<'t>(py: Python,
+                    text: &'t str,
+                    pattern: &'t str,
+                    repl: &'t str) -> PyResult<String> {
     return Ok("stub".to_string());
 }
 
