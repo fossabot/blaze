@@ -3,10 +3,6 @@
 extern crate cpython;
 extern crate bio;
 
-use bio::pattern_matching::horspool::Horspool;
-use cpython::{Python, PyResult};
-use std::collections::{BTreeMap};
-
 //
 // public
 //
@@ -16,10 +12,10 @@ use std::collections::{BTreeMap};
  * + {str} text -- input string.
  * + {str} character -- character to be counted.
  */
-pub fn count<'t>(py: Python,
+pub fn count<'t>(py :cpython::Python,
                  text: &'t str,
-                 pattern: &'t str) -> PyResult<usize> {
-    let horspool = Horspool::new(pattern.as_bytes());
+                 pattern: &'t str) -> cpython::PyResult<usize> {
+    let horspool = bio::pattern_matching::horspool::Horspool::new(pattern.as_bytes());
     let vector: Vec<usize> = horspool.find_all(text.as_bytes()).collect();
     return Ok(vector.len());
 }
@@ -30,24 +26,22 @@ pub fn count<'t>(py: Python,
  * + {str} pattern -- absolute string.
  * + {str} repl -- replacement string.
  */
-pub fn replace<'t>(py: Python,
+pub fn replace<'t>(py :cpython::Python,
                    text: &str,
                    pattern: &str,
-                   repl: &str) -> PyResult<String> {
+                   repl: &str) -> cpython::PyResult<String> {
     let _text = text.to_string().replace(pattern, repl);
     return Ok(_text);
 }
 
 /** replacen(text, patterns)
- * : search and replace `pattern` with `repl` inside `text`.
+ * : search and replace multiple `patterns`.
  * + {str} text -- input string.
- * + {str} pattern -- absolute string.
- * + {str} repl -- replacement string.
+ * + {PyDict} patterns -- dictionary of replacements.
  */
-pub fn replacen<'t>(py: Python,
+pub fn replacen<'t>(py :cpython::Python,
                     text: &'t str,
-                    pattern: &'t str,
-                    repl: &'t str) -> PyResult<String> {
+                    patterns: cpython::PyDict) -> cpython::PyResult<String> {
     return Ok("stub".to_string());
 }
 
@@ -55,7 +49,7 @@ pub fn replacen<'t>(py: Python,
  * : transform `text` to lowercase.
  * + {str} text -- input string.
  */
-pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
+pub fn to_lower<'t>(py :cpython::Python, text: &'t str) -> cpython::PyResult<String> {
     let _text = text.to_string().to_lowercase(); // rust heap transformation
     return Ok(_text);
 }
@@ -64,7 +58,7 @@ pub fn to_lower<'t>(py: Python, text: &'t str) -> PyResult<String> {
  * : transform `text` to uppercase.
  * + {str} text -- input string.
  */
-pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
+pub fn to_upper<'t>(py :cpython::Python, text: &'t str) -> cpython::PyResult<String> {
     let _text = text.to_string().to_uppercase(); // rust heap transformation
     return Ok(_text);
 }
@@ -73,8 +67,8 @@ pub fn to_upper<'t>(py: Python, text: &'t str) -> PyResult<String> {
  * : return distinct text characters.
  * + {str} text -- input string.
  */
-pub fn unique(py: Python, text: &str) -> PyResult<String> {
-    let mut btree = BTreeMap::new();
+pub fn unique(py :cpython::Python, text: &str) -> cpython::PyResult<String> {
+    let mut btree = std::collections::BTreeMap::new();
     for character in text.chars() {
         if !btree.contains_key(&character) {
             btree.insert(character, ());
@@ -91,9 +85,8 @@ py_module_initializer!(blaze, initblaze, PyInit_blaze, |py, m| {
     m.add(py, "__name__", "blaze")?;
     m.add(py, "__doc__", "blazingly-fast text manipulation engine for Python.")?;
     m.add(py, "count", py_fn!(py, count(text: &str, pattern: &str)))?;
-    m.add(py, "replace", py_fn!(py, replace(text: &str,
-                                            pattern: &str,
-                                            repl: &str)))?;
+    m.add(py, "replace", py_fn!(py, replace(text: &str, pattern: &str, repl: &str)))?;
+    m.add(py, "replacen", py_fn!(py, replacen(text: &str, patterns: cpython::PyDict)))?;
     m.add(py, "to_lower", py_fn!(py, to_lower(text: &str)))?;
     m.add(py, "to_upper", py_fn!(py, to_upper(text: &str)))?;
     m.add(py, "unique", py_fn!(py, unique(text: &str)))?;
