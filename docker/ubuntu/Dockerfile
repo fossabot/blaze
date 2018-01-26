@@ -8,6 +8,7 @@ RUN apt-get update -y && \
             cargo \
             curl \
             git \
+            make \
             sudo
 
 RUN git clone https://github.com/initbar/blaze && \
