@@ -42,8 +42,8 @@ test:
 	   pytest --benchmark-enable test_rust_count.py && \
 	   pytest --benchmark-enable test_rust_lowercase.py && \
 	   pytest --benchmark-enable test_rust_replace.py && \
-	   pytest --benchmark-enable test_rust_uppercase.py && \
-	   echo $?
+	   pytest --benchmark-enable test_rust_replacen.py && \
+	   pytest --benchmark-enable test_rust_uppercase.py
 
 clean:
 	rm -rfv $(SOURCE)/target
