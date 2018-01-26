@@ -8,7 +8,6 @@ RUN yum update -y && \
         file \
         gcc \
         git \
-        python-pip \
         sudo \
         tar \
         which \

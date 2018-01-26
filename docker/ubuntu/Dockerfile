@@ -8,7 +8,7 @@ RUN apt-get update -y && \
             cargo \
             curl \
             git \
-            python-pip \
+            nproc \
             sudo
 
 RUN git clone https://github.com/initbar/blaze && \

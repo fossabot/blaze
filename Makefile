@@ -1,7 +1,9 @@
+# project
 PROJECT = $(shell pwd)
 SOURCE = $(PROJECT)/src
 TESTS  = $(PROJECT)/tests
 
+# optimization
 CORES  = $(shell nproc)
 
 all: # Python 2.7
