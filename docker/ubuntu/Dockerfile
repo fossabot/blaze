@@ -9,6 +9,7 @@ RUN apt-get update -y && \
             curl \
             git \
             make \
+            python2.7 \
             sudo
 
 RUN git clone https://github.com/initbar/blaze && \
