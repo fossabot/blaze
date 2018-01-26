@@ -14,7 +14,8 @@ extern crate bio;
  */
 pub fn count<'t>(py :cpython::Python,
                  text: &'t str,
-                 pattern: &'t str) -> cpython::PyResult<usize> {
+                 pattern: &'t str)
+                 -> cpython::PyResult<usize> {
     let horspool = bio::pattern_matching::horspool::Horspool::new(pattern.as_bytes());
     let vector: Vec<usize> = horspool.find_all(text.as_bytes()).collect();
     return Ok(vector.len());
@@ -29,7 +30,8 @@ pub fn count<'t>(py :cpython::Python,
 pub fn replace<'t>(py :cpython::Python,
                    text: &str,
                    pattern: &str,
-                   repl: &str) -> cpython::PyResult<String> {
+                   repl: &str)
+                   -> cpython::PyResult<String> {
     let _text = text.to_string().replace(pattern, repl);
     return Ok(_text);
 }
@@ -41,7 +43,8 @@ pub fn replace<'t>(py :cpython::Python,
  */
 pub fn replacen<'t>(py :cpython::Python,
                     text: &'t str,
-                    patterns: cpython::PyDict) -> cpython::PyResult<String> {
+                    patterns: cpython::PyDict)
+                    -> cpython::PyResult<String> {
     return Ok("stub".to_string());
 }
 
@@ -49,7 +52,9 @@ pub fn replacen<'t>(py :cpython::Python,
  * : transform `text` to lowercase.
  * + {str} text -- input string.
  */
-pub fn to_lower<'t>(py :cpython::Python, text: &'t str) -> cpython::PyResult<String> {
+pub fn to_lower<'t>(py :cpython::Python,
+                    text: &'t str)
+                    -> cpython::PyResult<String> {
     let _text = text.to_string().to_lowercase(); // rust heap transformation
     return Ok(_text);
 }
@@ -58,7 +63,9 @@ pub fn to_lower<'t>(py :cpython::Python, text: &'t str) -> cpython::PyResult<Str
  * : transform `text` to uppercase.
  * + {str} text -- input string.
  */
-pub fn to_upper<'t>(py :cpython::Python, text: &'t str) -> cpython::PyResult<String> {
+pub fn to_upper<'t>(py :cpython::Python,
+                    text: &'t str)
+                    -> cpython::PyResult<String> {
     let _text = text.to_string().to_uppercase(); // rust heap transformation
     return Ok(_text);
 }
@@ -67,7 +74,9 @@ pub fn to_upper<'t>(py :cpython::Python, text: &'t str) -> cpython::PyResult<Str
  * : return distinct text characters.
  * + {str} text -- input string.
  */
-pub fn unique(py :cpython::Python, text: &str) -> cpython::PyResult<String> {
+pub fn unique(py :cpython::Python,
+              text: &str)
+              -> cpython::PyResult<String> {
     let mut btree = std::collections::BTreeMap::new();
     for character in text.chars() {
         if !btree.contains_key(&character) {
