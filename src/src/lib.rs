@@ -3,26 +3,34 @@
 extern crate cpython;
 extern crate bio;
 
-use cpython::ObjectProtocol;
+use cpython::{
+    ObjectProtocol,
+    PyDict,
+    PyObject,
+    PyResult,
+    Python,
+};
+use bio::pattern_matching::horspool::Horspool;
+use std::collections::BTreeMap;
 
 #[allow(unused_doc_comment)]
-pub fn count<'t>(_py :cpython::Python,
+pub fn count<'t>(_py: Python,
                  text: &'t str,
                  pattern: &'t str)
-                 -> cpython::PyResult<usize> {
+                 -> PyResult<usize> {
     /** : count the frequency of `pattern` inside `text`.
      * + {&str} text -- input string.
      * + {&str} pattern -- pattern to be counted.
      */
-    let horspool = bio::pattern_matching::horspool::Horspool::new(pattern.as_bytes());
+    let horspool = Horspool::new(pattern.as_bytes());
     let vector: Vec<usize> = horspool.find_all(text.as_bytes()).collect();
     return Ok(vector.len());
 }
 
 #[allow(unused_doc_comment)]
-pub fn to_lower<'t>(_py :cpython::Python,
+pub fn to_lower<'t>(_py: Python,
                     text: &'t str)
-                    -> cpython::PyResult<String> {
+                    -> PyResult<String> {
     /** : transform `text` to lowercase.
      * + {&str} text -- input string.
      */
@@ -31,9 +39,9 @@ pub fn to_lower<'t>(_py :cpython::Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn to_upper<'t>(_py :cpython::Python,
+pub fn to_upper<'t>(_py: Python,
                     text: &'t str)
-                    -> cpython::PyResult<String> {
+                    -> PyResult<String> {
     /** : transform `text` to uppercase.
      * + {&str} text -- input string.
      */
@@ -42,13 +50,13 @@ pub fn to_upper<'t>(_py :cpython::Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn unique(_py :cpython::Python,
+pub fn unique(_py: Python,
               text: &str)
-              -> cpython::PyResult<String> {
+              -> PyResult<String> {
     /** : return distinct text characters.
      * + {&str} text -- input string.
      */
-    let mut btree = std::collections::BTreeMap::new();
+    let mut btree = BTreeMap::new();
     for character in text.chars() {
         if !btree.contains_key(&character) {
             btree.insert(character, ());
@@ -58,11 +66,11 @@ pub fn unique(_py :cpython::Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn replace<'t>(_py :cpython::Python,
+pub fn replace<'t>(_py: Python,
                    text: &str,
                    pattern: &str,
                    repl: &str)
-                   -> cpython::PyResult<String> {
+                   -> PyResult<String> {
     /** : search and replace `pattern` with `repl` inside `text`.
      * + {&str} text -- input string.
      * + {&str} pattern -- absolute string.
@@ -73,16 +81,16 @@ pub fn replace<'t>(_py :cpython::Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn replacen<'t>(_py :cpython::Python,
+pub fn replacen<'t>(_py: Python,
                     text: &'t str,
-                    patterns: cpython::PyDict)
-                    -> cpython::PyResult<String> {
+                    patterns: PyDict)
+                    -> PyResult<String> {
     /** : search and replace multiple `patterns`.
      * + {&str} text -- input string.
      * + {PyDict} patterns -- dictionary of replacements.
      */
     let mut _text = text.to_string();
-    let entries: Vec<(cpython::PyObject, cpython::PyObject)> = patterns.items(_py);
+    let entries: Vec<(PyObject, PyObject)> = patterns.items(_py);
     for entry in &entries {
         let (ref key, ref value) = *entry;
 
@@ -111,7 +119,7 @@ py_module_initializer!(blaze, initblaze, PyInit_blaze, |py, m| {
     m.add(py, "__doc__", "blazingly-fast text manipulation engine for Python.")?;
     m.add(py, "count", py_fn!(py, count(text: &str, pattern: &str)))?;
     m.add(py, "replace", py_fn!(py, replace(text: &str, pattern: &str, repl: &str)))?;
-    m.add(py, "replacen", py_fn!(py, replacen(text: &str, patterns: cpython::PyDict)))?;
+    m.add(py, "replacen", py_fn!(py, replacen(text: &str, patterns: PyDict)))?;
     m.add(py, "to_lower", py_fn!(py, to_lower(text: &str)))?;
     m.add(py, "to_upper", py_fn!(py, to_upper(text: &str)))?;
     m.add(py, "unique", py_fn!(py, unique(text: &str)))?;
