@@ -1,11 +1,12 @@
 PROJECT = $(shell pwd)
-
 SOURCE = $(PROJECT)/src
 TESTS  = $(PROJECT)/tests
 
+CORES  = $(shell nproc)
+
 all: # Python 2.7
 	cd $(SOURCE) && \
-	   cargo build --verbose --all && \
+	   cargo build -j $(CORES) --verbose --all && \
 	   mv -v $(SOURCE)/target/debug/libblaze.so \
 	         $(PROJECT)/blaze.so
 	   cp -v $(PROJECT)/blaze.so \
@@ -13,7 +14,7 @@ all: # Python 2.7
 
 release: # Python 2.7
 	cd $(SOURCE) && \
-	   cargo build --release --all-features --verbose --all && \
+	   cargo build -j $(CORES) --release --all-features --verbose --all && \
 	   mv $(SOURCE)/target/release/libblaze.so \
 	      $(PROJECT)/blaze.so
 	   cp -v $(PROJECT)/blaze.so \

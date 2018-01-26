@@ -5,6 +5,7 @@ extern crate bio;
 
 use cpython::ObjectProtocol;
 
+#[allow(unused_doc_comment)]
 pub fn count<'t>(_py :cpython::Python,
                  text: &'t str,
                  pattern: &'t str)
@@ -18,6 +19,7 @@ pub fn count<'t>(_py :cpython::Python,
     return Ok(vector.len());
 }
 
+#[allow(unused_doc_comment)]
 pub fn to_lower<'t>(_py :cpython::Python,
                     text: &'t str)
                     -> cpython::PyResult<String> {
@@ -28,6 +30,7 @@ pub fn to_lower<'t>(_py :cpython::Python,
     return Ok(_text);
 }
 
+#[allow(unused_doc_comment)]
 pub fn to_upper<'t>(_py :cpython::Python,
                     text: &'t str)
                     -> cpython::PyResult<String> {
@@ -38,6 +41,7 @@ pub fn to_upper<'t>(_py :cpython::Python,
     return Ok(_text);
 }
 
+#[allow(unused_doc_comment)]
 pub fn unique(_py :cpython::Python,
               text: &str)
               -> cpython::PyResult<String> {
@@ -53,6 +57,7 @@ pub fn unique(_py :cpython::Python,
     return Ok(btree.keys().collect());
 }
 
+#[allow(unused_doc_comment)]
 pub fn replace<'t>(_py :cpython::Python,
                    text: &str,
                    pattern: &str,
@@ -67,6 +72,7 @@ pub fn replace<'t>(_py :cpython::Python,
     return Ok(_text);
 }
 
+#[allow(unused_doc_comment)]
 pub fn replacen<'t>(_py :cpython::Python,
                     text: &'t str,
                     patterns: cpython::PyDict)
