@@ -3,6 +3,8 @@
 extern crate cpython;
 extern crate bio;
 
+use std::collections::BTreeMap;
+use bio::pattern_matching::horspool::Horspool;
 use cpython::{
     ObjectProtocol,
     PyDict,
@@ -10,13 +12,11 @@ use cpython::{
     PyResult,
     Python,
 };
-use bio::pattern_matching::horspool::Horspool;
-use std::collections::BTreeMap;
 
 #[allow(unused_doc_comment)]
-pub fn count<'t>(_py: Python,
-                 text: &'t str,
-                 pattern: &'t str)
+pub fn count<'a>(_py: Python,
+                 text: &'a str,
+                 pattern: &'a str)
                  -> PyResult<usize> {
     /** : count the frequency of `pattern` inside `text`.
      * + {&str} text -- input string.
@@ -28,8 +28,8 @@ pub fn count<'t>(_py: Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn to_lower<'t>(_py: Python,
-                    text: &'t str)
+pub fn to_lower<'a>(_py: Python,
+                    text: &'a str)
                     -> PyResult<String> {
     /** : transform `text` to lowercase.
      * + {&str} text -- input string.
@@ -39,8 +39,8 @@ pub fn to_lower<'t>(_py: Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn to_upper<'t>(_py: Python,
-                    text: &'t str)
+pub fn to_upper<'a>(_py: Python,
+                    text: &'a str)
                     -> PyResult<String> {
     /** : transform `text` to uppercase.
      * + {&str} text -- input string.
@@ -50,9 +50,9 @@ pub fn to_upper<'t>(_py: Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn unique(_py: Python,
-              text: &str)
-              -> PyResult<String> {
+pub fn unique<'a>(_py: Python,
+                  text: &'a str)
+                  -> PyResult<String> {
     /** : return distinct text characters.
      * + {&str} text -- input string.
      */
@@ -66,10 +66,10 @@ pub fn unique(_py: Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn replace<'t>(_py: Python,
-                   text: &str,
-                   pattern: &str,
-                   repl: &str)
+pub fn replace<'a>(_py: Python,
+                   text: &'a str,
+                   pattern: &'a str,
+                   repl: &'a str)
                    -> PyResult<String> {
     /** : search and replace `pattern` with `repl` inside `text`.
      * + {&str} text -- input string.
@@ -81,8 +81,8 @@ pub fn replace<'t>(_py: Python,
 }
 
 #[allow(unused_doc_comment)]
-pub fn replacen<'t>(_py: Python,
-                    text: &'t str,
+pub fn replacen<'a>(_py: Python,
+                    text: &'a str,
                     patterns: PyDict)
                     -> PyResult<String> {
     /** : search and replace multiple `patterns`.
