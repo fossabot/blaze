@@ -10,8 +10,8 @@ RUN yum update -y && \
         git \
         sudo \
         tar \
-        which \
         wget \
+        which \
         xz && \
     curl -sSf https://static.rust-lang.org/rustup.sh | sh && \
     wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz && \
