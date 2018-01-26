@@ -5,48 +5,76 @@ extern crate bio;
 
 use cpython::ObjectProtocol;
 
-//
-// public
-//
-
-/** count(text, character)
- * : count the frequency of `character` inside `text`.
- * + {str} text -- input string.
- * + {str} character -- character to be counted.
- */
 pub fn count<'t>(_py :cpython::Python,
                  text: &'t str,
                  pattern: &'t str)
                  -> cpython::PyResult<usize> {
+    /** : count the frequency of `pattern` inside `text`.
+     * + {&str} text -- input string.
+     * + {&str} pattern -- pattern to be counted.
+     */
     let horspool = bio::pattern_matching::horspool::Horspool::new(pattern.as_bytes());
     let vector: Vec<usize> = horspool.find_all(text.as_bytes()).collect();
     return Ok(vector.len());
 }
 
-/** replace(text, pattern, repl)
- * : search and replace `pattern` with `repl` inside `text`.
- * + {str} text -- input string.
- * + {str} pattern -- absolute string.
- * + {str} repl -- replacement string.
- */
+pub fn to_lower<'t>(_py :cpython::Python,
+                    text: &'t str)
+                    -> cpython::PyResult<String> {
+    /** : transform `text` to lowercase.
+     * + {&str} text -- input string.
+     */
+    let _text = text.to_string().to_lowercase(); // rust heap transformation
+    return Ok(_text);
+}
+
+pub fn to_upper<'t>(_py :cpython::Python,
+                    text: &'t str)
+                    -> cpython::PyResult<String> {
+    /** : transform `text` to uppercase.
+     * + {&str} text -- input string.
+     */
+    let _text = text.to_string().to_uppercase(); // rust heap transformation
+    return Ok(_text);
+}
+
+pub fn unique(_py :cpython::Python,
+              text: &str)
+              -> cpython::PyResult<String> {
+    /** : return distinct text characters.
+     * + {&str} text -- input string.
+     */
+    let mut btree = std::collections::BTreeMap::new();
+    for character in text.chars() {
+        if !btree.contains_key(&character) {
+            btree.insert(character, ());
+        }
+    }
+    return Ok(btree.keys().collect());
+}
+
 pub fn replace<'t>(_py :cpython::Python,
                    text: &str,
                    pattern: &str,
                    repl: &str)
                    -> cpython::PyResult<String> {
+    /** : search and replace `pattern` with `repl` inside `text`.
+     * + {&str} text -- input string.
+     * + {&str} pattern -- absolute string.
+     * + {&str} repl -- replacement string.
+     */
     let _text = text.to_string().replace(pattern, repl);
     return Ok(_text);
 }
 
-/** replacen(text, patterns)
- * : search and replace multiple `patterns`.
- * + {str} text -- input string.
- * + {PyDict} patterns -- dictionary of replacements.
- */
 pub fn replacen<'t>(_py :cpython::Python,
                     text: &'t str,
                     patterns: cpython::PyDict)
                     -> cpython::PyResult<String> {
+    /** : search and replace multiple `patterns`.
+     * + {&str} text -- input string.
+     * + {PyDict} patterns -- dictionary of replacements.
+     */
     let mut _text = text.to_string();
     let entries: Vec<(cpython::PyObject, cpython::PyObject)> = patterns.items(_py);
     for entry in &entries {
@@ -66,44 +94,6 @@ pub fn replacen<'t>(_py :cpython::Python,
         _text = _text.replace(_key_str, _value_str);
     }
     return Ok(_text);
-}
-
-/** to_lower(text)
- * : transform `text` to lowercase.
- * + {str} text -- input string.
- */
-pub fn to_lower<'t>(_py :cpython::Python,
-                    text: &'t str)
-                    -> cpython::PyResult<String> {
-    let _text = text.to_string().to_lowercase(); // rust heap transformation
-    return Ok(_text);
-}
-
-/** to_upper(text)
- * : transform `text` to uppercase.
- * + {str} text -- input string.
- */
-pub fn to_upper<'t>(_py :cpython::Python,
-                    text: &'t str)
-                    -> cpython::PyResult<String> {
-    let _text = text.to_string().to_uppercase(); // rust heap transformation
-    return Ok(_text);
-}
-
-/** unique(text)
- * : return distinct text characters.
- * + {str} text -- input string.
- */
-pub fn unique(_py :cpython::Python,
-              text: &str)
-              -> cpython::PyResult<String> {
-    let mut btree = std::collections::BTreeMap::new();
-    for character in text.chars() {
-        if !btree.contains_key(&character) {
-            btree.insert(character, ());
-        }
-    }
-    return Ok(btree.keys().collect());
 }
 
 //
