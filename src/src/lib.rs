@@ -3,10 +3,7 @@
 extern crate cpython;
 extern crate bio;
 
-use std::collections::{
-    BTreeMap,
-    HashMap
-};
+use std::collections::BTreeMap;
 use bio::pattern_matching::horspool::Horspool;
 use cpython::{
     PyResult,
@@ -98,11 +95,9 @@ pub fn replacen<'a>(_py: Python,
         dict_keys.len() != dict_vals.len() {
         return Ok(_text);
     }
-
-    // reconstruct dictionary
-    let mut map: HashMap<&str, &str> = HashMap::with_capacity(dict_keys.len());
     for (i, key) in dict_keys.iter().enumerate() {
-        map.insert(key, &dict_vals[i]);
+        let result = replace(_py, &_text, key, &dict_vals[i]);
+        _text = result.unwrap();
     }
     return Ok(_text);
 }
