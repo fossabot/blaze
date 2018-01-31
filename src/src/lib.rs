@@ -84,13 +84,20 @@ pub fn replace<'a>(_py: Python,
 pub fn replacen<'a>(_py: Python,
                     text: &'a str,
                     dict_keys: Vec<String>,
-                    dic_vals: Vec<String>)
+                    dict_vals: Vec<String>)
                     -> PyResult<String> {
     /** : search and replace multiple `patterns`.
      * + {&str} text -- input string.
-     * + {PyDict} patterns -- dictionary of replacements.
      */
-    return Ok("stub".to_string());
+    let mut _text = text.to_string();
+    let mut map: HashMap<&str, &str> = HashMap::new();
+    if text.is_empty() ||
+        dict_keys.is_empty() ||
+        dict_vals.is_empty() ||
+        dict_keys.len() != dict_vals.len() {
+        return Ok(_text);
+    }
+    return Ok(_text);
 }
 
 //
