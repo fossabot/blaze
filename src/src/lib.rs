@@ -88,14 +88,21 @@ pub fn replacen<'a>(_py: Python,
                     -> PyResult<String> {
     /** : search and replace multiple `patterns`.
      * + {&str} text -- input string.
+     * + {Vec<String>} dict_keys -- dictionary keys.
+     * + {Vec<String>} dict_values -- dictionary values.
      */
     let mut _text = text.to_string();
-    let mut map: HashMap<&str, &str> = HashMap::new();
     if text.is_empty() ||
         dict_keys.is_empty() ||
         dict_vals.is_empty() ||
         dict_keys.len() != dict_vals.len() {
         return Ok(_text);
+    }
+
+    // reconstruct dictionary
+    let mut map: HashMap<&str, &str> = HashMap::with_capacity(dict_keys.len());
+    for (i, key) in dict_keys.iter().enumerate() {
+        map.insert(key, &dict_vals[i]);
     }
     return Ok(_text);
 }
