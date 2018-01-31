@@ -96,8 +96,7 @@ pub fn replacen<'a>(_py: Python,
         return Ok(_text);
     }
     for (i, key) in dict_keys.iter().enumerate() {
-        let result = replace(_py, &_text, key, &dict_vals[i]);
-        _text = result.unwrap();
+        _text = _text.replace(key, &dict_vals[i]);
     }
     return Ok(_text);
 }
