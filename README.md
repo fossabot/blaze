@@ -37,16 +37,12 @@ Compared to native Python methods, all operations - using the power of [rust](ht
 
 ## Build
 
-- By default, **blaze** is built against the Python 2.7 libraries. In order to build for Python 3, switch to Python 3 features under [Cargo.toml](https://github.com/initbar/blaze/blob/master/src/Cargo.toml). Otherwise, building is as simple as running `make`:
+By default, **blaze** is built against the Python 2.7 libraries. In order to build for Python 3, switch to Python 3 features under [Cargo.toml](https://github.com/initbar/blaze/blob/master/src/Cargo.toml). Otherwise, building is as simple as running `make`:
 
 ```bash
 ~$ make
 ~$ make test # optional
 ```
-
-- To build using [docker](https://www.docker.com), use the [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters below (once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT).
-  - make *docker-centos*
-  - make *docker-ubuntu*
 
 ## Usage
 
@@ -55,6 +51,12 @@ It is very straightforward to use **blaze**. When [build](#build) is finished, t
 ```python
 import blaze # imports "blaze.so"
 ```
+
+## Docker
+
+To build using [docker](https://www.docker.com), use the [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters below (once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT).
+  - make *docker-centos*
+  - make *docker-ubuntu*
 
 ## License
 
