@@ -25,13 +25,13 @@ release: # Python 2.7
 docker-centos: # Centos 6.7
 	sudo docker build . \
 	     --tag="blaze-centos:latest" \
-	     -f docker/centos/Dockerfile && \
+	     -f ./docker/centos/Dockerfile && \
 	sudo docker image rm "blaze-centos:latest"
 
 docker-ubuntu: # Ubuntu 16.04
 	sudo docker build . \
 	     --tag="blaze-ubuntu:latest" \
-	     -f docker/ubuntu/Dockerfile && \
+	     -f ./docker/ubuntu/Dockerfile && \
 	sudo docker image rm "blaze-ubuntu:latest"
 
 test:
