@@ -55,8 +55,11 @@ import blaze # imports "blaze.so"
 ## Docker
 
 To build using [docker](https://www.docker.com), use the [make](https://github.com/initbar/blaze/blob/master/Makefile) parameters below (once the build is finished, you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT).
-  - make *docker-centos*
-  - make *docker-ubuntu*
+
+```bash
+~$ make docker-centos # centos 6.7
+~$ make docker-ubuntu # ubuntu 16.04
+```
 
 ## License
 
