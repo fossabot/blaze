@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/initbar/blaze/docs/logo.png">
 </p>
 
-**blaze** is a [rust](https://www.rust-lang.org)-Python module to make Python codes blazingly-fast.
+**blaze** is a [rust](https://www.rust-lang.org)-Python module to make your Python codes blazingly-fast.
 
 ## What can it do?
 
@@ -13,7 +13,7 @@ For specific code details, please see [developer documentation](#).
 
 ## Why **blaze**?
 
-Compared to native Python methods, **blaze** outperforms by ~50% (and some are approximately 133% faster).
+Compared to native Python methods, **blaze** outperforms by ~50% and some by approximatley 133%.
 
 | **Test** | **Python** | **Blaze** |
 |:--------:|:----------:|:---------:|
@@ -25,13 +25,13 @@ Compared to native Python methods, **blaze** outperforms by ~50% (and some are a
 
 ## Build
 
-There is only [cargo](https://github.com/rust-lang/cargo) dependency to compile the rust code into Python module.
+There is only [cargo](https://github.com/rust-lang/cargo) dependency to compile the rust code into a Python module.
 
 ```bash
 ~$ sudo apt install cargo
 ```
 
-By default, **blaze** is built against the Python 2.7 libraries for maximum platform support. However, in order to build for Python 3+, please [edit Cargo.toml](./src/Cargo.toml) and run `make`. Otherwise, building is as simple as running `make`:
+By default, **blaze** is built for Python 2.7 support. However, in order to build for Python 3+, please [edit Cargo.toml](./src/Cargo.toml) and run `make`.
 
 ```bash
 ~$ make
@@ -40,18 +40,16 @@ By default, **blaze** is built against the Python 2.7 libraries for maximum plat
 
 ## Tests
 
-Running benchmarks and tests requires some [pip](https://github.com/pypa/pip) packages.
+Running benchmarks and tests will require some [pip](https://github.com/pypa/pip) packages.
 
 ```bash
-~$ # sudo -H pip install pytest pytest-benchmark
+~$ pip install pytest pytest-benchmark
 ~$ make test
 ```
 
 ## Usage
 
-It is very straightforward to use **blaze**. When [build](#build) is completed, a binary called "*blaze.so*" will be generated at the project base.
-
-From there, in your Python code, just use the `import` keyword:
+It is very straightforward to use **blaze**. When [build](#build) is completed, a binary called "*blaze.so*" will be generated at the project base. From there, in your Python code, just use the `import` keyword:
 
 ```python
 import blaze # imports "blaze.so"
@@ -59,11 +57,11 @@ import blaze # imports "blaze.so"
 
 ## Docker
 
-To prevent tainting local environment, build using [docker](https://www.docker.com) is recommended. Use the [make](https://github.com/initbar/blaze/blob/master/Makefile) commands and you'll see a https://file.io link at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs) or STDOUT).
+To prevent tainting your local environment, it is recommended to build using [docker](https://www.docker.com). Use one of the [make](https://github.com/initbar/blaze/blob/master/Makefile) commands below and you'll see a link to https://file.io at the end of [docker log](https://docs.docker.com/engine/reference/commandline/logs).
 
 ```bash
-~$ make docker-centos # centos 6.7
-~$ make docker-ubuntu # ubuntu 16.04
+~$ make docker-ubuntu # ubuntu
+~$ make docker-centos # centos
 ```
 
 ## License
