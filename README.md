@@ -13,7 +13,7 @@ For specific code details, please see [developer documentation](#).
 
 ## Why **blaze**?
 
-Compared to native Python methods, **blaze** outperforms by ~50% and some by approximatley 133%.
+Compared to native Python methods, **blaze** outperforms by at least ~50%.
 
 | **Test** | **Python** | **Blaze** |
 |:--------:|:----------:|:---------:|
