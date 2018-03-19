@@ -7,7 +7,7 @@
 
 ## What can it do?
 
-This library was written since Python is *manageably slow* with string manipulation operations. Since many Python developers desire the performance of low-level languages (e.g. C++) without having to add unnecessary complexity, **blaze** allows the developers to tap into the performance of [rust language](https://www.rust-lang.org) by interfacing between the two different languages.
+This module was written in order to extend Python codes to use the performance of low-level languages with zero complexity. **blaze**, in essence, allows Python developers to tap into the performance of [rust language](https://www.rust-lang.org) by interfacing between the two languages.
 
 For specific code details, please see [developer documentation](#).
 
