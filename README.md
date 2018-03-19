@@ -13,7 +13,7 @@ For specific code details, please see [developer documentation](#).
 
 ## Why **blaze**?
 
-Compared to native Python methods, **blaze** outperforms by ~50% (and some are approximately 133% faster). For some benchmarks:
+Compared to native Python methods, **blaze** outperforms by ~50% (and some are approximately 133% faster).
 
 | **Test** | **Python** | **Blaze** |
 |:--------:|:----------:|:---------:|
@@ -42,16 +42,16 @@ By default, **blaze** is built against the Python 2.7 libraries for maximum plat
 
 Running benchmarks and tests requires some [pip](https://github.com/pypa/pip) packages.
 
-```
+```bash
 ~$ # sudo -H pip install pytest pytest-benchmark
 ~$ make test
 ```
 
 ## Usage
 
-It is very straightforward to use **blaze**. When [build](#build) is finished, there should be an [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) binary ("*blaze.so*") at the project base and the `tests/` directory.
+It is very straightforward to use **blaze**. When [build](#build) is completed, a binary called "*blaze.so*" will be generated at the project base.
 
-In your Python code, just use the `import` keyword:
+From there, in your Python code, just use the `import` keyword:
 
 ```python
 import blaze # imports "blaze.so"
