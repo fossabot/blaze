@@ -25,18 +25,26 @@ Compared to native Python methods, **blaze** outperforms by ~50% (and some are a
 
 ## Build
 
-There is only [cargo](https://github.com/rust-lang/cargo) dependency to compile the rust code into Python module. However, if you want to run unit tests and benchmarks, you can also install some [pip](https://github.com/pypa/pip) packages.
+There is only [cargo](https://github.com/rust-lang/cargo) dependency to compile the rust code into Python module.
 
 ```bash
 ~$ sudo apt install cargo
-~$ sudo -H pip install pytest pytest-benchmark
 ```
 
-By default, **blaze** is built against the Python 2.7 libraries for maximum platform support. However, in order to build for Python 3+, edit [Cargo.toml](./src/Cargo.toml). Otherwise, building is as simple as running `make`:
+By default, **blaze** is built against the Python 2.7 libraries for maximum platform support. However, in order to build for Python 3+, please [edit Cargo.toml](./src/Cargo.toml) and run `make`. Otherwise, building is as simple as running `make`:
 
 ```bash
 ~$ make
-~$ make test # optional
+~$ # make release
+```
+
+## Tests
+
+Running benchmarks and tests requires some [pip](https://github.com/pypa/pip) packages.
+
+```
+~$ # sudo -H pip install pytest pytest-benchmark
+~$ make test
 ```
 
 ## Usage
