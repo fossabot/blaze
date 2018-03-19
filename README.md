@@ -7,11 +7,6 @@
 
 This library was written since Python is *manageably slow* with string manipulation operations. Since many Python developers desire the performance of low-level languages (e.g. C++) without having to add unnecessary complexity, **blaze** allows the developers to tap into the performance of [rust language](https://www.rust-lang.org) by interfacing between the two different languages.
 
-## Dependencies
-
-- [cargo](https://github.com/rust-lang/cargo)
-- [pip](https://github.com/pypa/pip) ([pytest](https://pypi.python.org/pypi/pytest) and [pytest-benchmark](https://pypi.python.org/pypi/pytest-benchmark/3.1.1))
-
 ## What can it do?
 
 Please see [developer documentation]().
@@ -29,6 +24,13 @@ Compared to native Python methods, **blaze** outperforms by ~50% (and some are a
 | .to_upper() | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/python/uppercase.png) | ![](https://raw.githubusercontent.com/initbar/blaze/docs/benchmark/rust/uppercase.png) |
 
 ## Build
+
+There is only [cargo](https://github.com/rust-lang/cargo) dependency to compile the rust code into Python module. However, if you want to run unit tests and benchmarks, you can also install some [pip](https://github.com/pypa/pip) packages.
+
+```bash
+~$ sudo apt install cargo
+~$ sudo -H pip install pytest pytest-benchmark
+```
 
 By default, **blaze** is built against the Python 2.7 libraries for maximum platform support. However, in order to build for Python 3+, edit [Cargo.toml](./src/Cargo.toml). Otherwise, building is as simple as running `make`:
 
