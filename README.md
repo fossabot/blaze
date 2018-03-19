@@ -3,13 +3,13 @@
   <img src="https://raw.githubusercontent.com/initbar/blaze/docs/logo.png">
 </p>
 
-**blaze** is a [rust](https://www.rust-lang.org)-Python library for blazingly-fast text manipulation at a quantum level.
-
-This library was written since Python is *manageably slow* with string manipulation operations. Since many Python developers desire the performance of low-level languages (e.g. C++) without having to add unnecessary complexity, **blaze** allows the developers to tap into the performance of [rust language](https://www.rust-lang.org) by interfacing between the two different languages.
+**blaze** is a [rust](https://www.rust-lang.org)-Python module to make Python codes blazingly-fast.
 
 ## What can it do?
 
-Please see [developer documentation]().
+This library was written since Python is *manageably slow* with string manipulation operations. Since many Python developers desire the performance of low-level languages (e.g. C++) without having to add unnecessary complexity, **blaze** allows the developers to tap into the performance of [rust language](https://www.rust-lang.org) by interfacing between the two different languages.
+
+For specific code details, please see [developer documentation](#).
 
 ## Why **blaze**?
 
