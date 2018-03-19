@@ -1,5 +1,6 @@
 # project
 PROJECT = $(shell pwd)
+
 SOURCE = $(PROJECT)/src
 TESTS  = $(PROJECT)/tests
 
@@ -35,18 +36,7 @@ docker-ubuntu: # Ubuntu 16.04
 	sudo docker image rm "blaze-ubuntu:latest"
 
 test:
-	cd $(TESTS) && \
-	   pytest --benchmark-enable test_py_count.py && \
-	   pytest --benchmark-enable test_py_lowercase.py && \
-	   pytest --benchmark-enable test_py_regex.py && \
-	   pytest --benchmark-enable test_py_replace.py && \
-	   pytest --benchmark-enable test_py_replacen.py && \
-	   pytest --benchmark-enable test_py_uppercase.py && \
-	   pytest --benchmark-enable test_rust_count.py && \
-	   pytest --benchmark-enable test_rust_lowercase.py && \
-	   pytest --benchmark-enable test_rust_replace.py && \
-	   pytest --benchmark-enable test_rust_replacen.py && \
-	   pytest --benchmark-enable test_rust_uppercase.py
+	find $(TESTS) -type f -iname "test*.py" -exec pytest --benchmark-enable "{}" \;
 
 clean:
 	rm -rfv $(SOURCE)/target
