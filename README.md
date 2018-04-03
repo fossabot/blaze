@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/initbar/blaze.svg?branch=master)](https://travis-ci.org/initbar/blaze)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Finitbar%2Fblaze.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Finitbar%2Fblaze?ref=badge_shield)
 <p align="center">
   <img src="https://raw.githubusercontent.com/initbar/blaze/docs/logo.png">
 </p>
@@ -67,3 +68,6 @@ To prevent tainting your local environment, it is recommended to build using [do
 ## License
 
 **blaze** is under [MIT License](./LICENSE.md).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Finitbar%2Fblaze.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Finitbar%2Fblaze?ref=badge_large)
